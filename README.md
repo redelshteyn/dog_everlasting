@@ -5,28 +5,47 @@ Website for Dog Everlasting, a private atelier that preserves dogs so they can s
 ## Structure
 
 ```
-site/index.html   The full website: a single self-contained HTML file (inline CSS and JS)
-Dockerfile        Container that serves site/ with Caddy (used by Railway)
-Caddyfile         Web server config: static files, gzip, /healthz, security headers
-railway.json      Railway build and deploy settings
+site/index.html      The website: a single self-contained HTML file (inline CSS and JS)
+site/likeness.html   The private likeness page for Register members: photos, film, measurements
+app/                 FastAPI backend: serves the site, saves commissions, uploads and measurements
+  catalog.py         What we ask families to capture (views, film, measurements). Edit here.
+  main.py            Routes and API
+  admin.py           Password-protected pages for the team (/admin)
+migrations/          Database migrations (Alembic), applied automatically on startup
+tests/               pytest suite
+Dockerfile           Container Railway builds
+railway.json         Railway build and deploy settings
 ```
 
-Open `site/index.html` in a browser to view it. There is no build step.
+## Running it locally
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements-dev.txt
+uvicorn app.main:app --reload --port 8080
+```
+
+Open http://localhost:8080. It uses a local SQLite file (`dogeverlasting.db`) and saves uploads to `./media`. The admin password locally is `letmein` unless you set `ADMIN_PASSWORD`.
+
+Run the tests with `pytest`.
 
 ## Deploying to Railway
 
-The site is served by [Caddy](https://caddyserver.com) in a small container (`Dockerfile`, `Caddyfile`). Railway reads `railway.json`, builds the Dockerfile, and checks `/healthz`.
+1. **Connect the repo** through the Railway GitHub app so pushes to `main` deploy automatically.
+2. **Add the Postgres plugin** to the project. Railway injects `DATABASE_URL`.
+3. **Add a volume** to the service, mounted at `/data`. Photos and film are saved there. Without it, every deploy would wipe what families have uploaded.
+4. **Set `ADMIN_PASSWORD`** under Variables. It protects `/admin`, where the team sees every request, upload and measurement.
 
-1. In Railway: **New Project → Deploy from GitHub repo** → pick `dog_everlasting`.
-2. **Settings → Networking → Custom Domain**: add your domain, then create the DNS record Railway shows you at your registrar.
+The app **refuses to start** on Railway without Postgres, the volume and `ADMIN_PASSWORD`, and Railway keeps the previous deploy live, so nothing breaks while you set them up. Health check: `/healthz`.
 
-No environment variables are needed yet. Railway sets `PORT` automatically.
+## How the Register flow works
 
-To run the container locally:
+1. A family joins the Register through "Begin a commission". The request is saved, and they get a private link: `/likeness/<token>`.
+2. On that page they add photographs by view (front, sides, three-quarters, rear, above; eyes, nose, whisker pads, ear set; markings, standing, sitting) and a short film, over as many days as they like.
+3. They add rounds of measurements, in inches or centimetres. We average every round.
+4. The team sees everything at `/admin`.
 
-```bash
-docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlasting
-```
+The link is the only key to the page, so treat it like a password. It is not yet emailed; families see it once on the confirmation screen, so they should bookmark it until email is connected.
 
 ## The site
 
@@ -39,7 +58,7 @@ docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlastin
 
 ## Before launch
 
-- [ ] Connect the booking form to a backend (see `TODO` in `site/index.html`)
+- [ ] Email the team on every new request, and email families their private likeness link
 - [ ] Replace placeholder phone number (+1 888 555 0142) and confirm the email domain
 - [ ] Replace photography placeholders (each `.ph` block's caption is the shot brief)
 - [ ] Legal review of the Register (prepaid, multi-year plan)
@@ -48,6 +67,6 @@ docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlastin
 
 ## Roadmap
 
-1. Backend: form submissions, Stripe billing for the Register ($35/month), member accounts, 3D model storage
+1. Backend: ~~form submissions~~ (done, saved to Postgres), ~~likeness uploads and measurements~~ (done), email notifications, Stripe billing for the Register ($35/month)
 2. Meta Muse member connector: Register status and veterinarian details
 3. Meta Muse directory connector: public, read-only services and booking

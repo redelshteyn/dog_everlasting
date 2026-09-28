@@ -649,7 +649,7 @@
       <div class="process-track" id="track">
         <article class="step">
           <figure class="ph t2"><span>A dog on a low plinth in soft studio light, mid-sitting</span></figure>
-          <div class="txt"><span class="n">01</span><h3>The Model</h3><p>While they are with you, we create a precise 3D model of your dog. Together we agree on how they will rest, and how they will be presented.</p></div>
+          <div class="txt"><span class="n">01</span><h3>The Model</h3><p>While they are with you, we create a precise 3D model of your dog from the photographs, film and measurements you share with us. Together we agree on how they will rest, and how they will be presented.</p></div>
         </article>
         <article class="step">
           <figure class="ph"><span>The case, closed, in a quiet veterinary clinic</span></figure>
@@ -784,7 +784,7 @@
           <span class="per">A month, credited toward your commission</span>
           <p class="pitch">For the day you hope is far away. Your dog is modelled now, while they are with you, and everything is arranged with your veterinarian, so that when the time comes there is nothing left to decide.</p>
           <dl>
-            <div><dt>The model</dt><dd>A 3D model of your dog, made now and kept safely until it is needed.</dd></div>
+            <div><dt>The model</dt><dd>A 3D model of your dog, made from the photographs, film and measurements you share, and kept safely until it is needed.</dd></div>
             <div><dt>Veterinarian</dt><dd>Arranged in advance. We provide the case.</dd></div>
             <div><dt>Credit</dt><dd>Every payment counts toward your dog’s commission.</dd></div>
             <div><dt>Balance</dt><dd>Any remaining balance is due at commission.</dd></div>
@@ -996,6 +996,10 @@
             <p class="caps muted">Thank you</p>
             <h2 id="doneTitle"></h2>
             <p class="lede" id="doneMsg" style="margin-top:18px"></p>
+            <div id="likenessNext" hidden style="margin-bottom:40px">
+              <a class="btn" id="likenessLink" href="#">Begin their likeness</a>
+              <p class="muted" style="margin-top:14px;font-size:13px;max-width:460px">Photographs, a short film and a few measurements, added over several days. This page is private to you; please keep the link.</p>
+            </div>
             <button type="button" class="link" data-close-flow>Return to Dog Everlasting</button>
           </section>
 
@@ -1135,15 +1139,27 @@
       return true;
     }
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       if (!validate()) return;
       if (step < STEPS) { goTo(step + 1); setTimeout(() => $('.panel.active input:not([type=radio]):not([type=checkbox]), .panel.active textarea')?.focus({ preventScroll: true }), 50); return; }
 
-      // TODO: send to your backend / CRM, e.g.
-      // fetch('/api/commission', { method: 'POST', body: new FormData(form) });
-
       const d = new FormData(form);
+      const payload = Object.fromEntries(['circumstance', 'dogName', 'breed', 'tier', 'pose', 'story', 'name', 'email', 'phone', 'city', 'contact', 'vet']
+        .map(k => [k, (d.get(k) || '').toString()]));
+      let saved;
+      $('#next').disabled = true;
+      try {
+        const res = await fetch('/api/commissions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        if (!res.ok) throw new Error(res.status);
+        saved = await res.json();
+      } catch {
+        $('#err').textContent = 'We could not send this just now. Please try again, or call us on +1 888 555 0142.';
+        return;
+      } finally {
+        $('#next').disabled = false;
+      }
+
       const first = d.get('name').trim().split(/\s+/)[0];
       const dog = d.get('dogName').trim();
       const circ = d.get('circumstance');
@@ -1153,6 +1169,11 @@
         register: `Your Client Advisor will be in touch within one day to complete ${dog}’s registration and arrange the sitting for their 3D model. We will also introduce ourselves to your veterinarian.`,
         ahead: `Your Client Advisor will be in touch within one day to arrange a private consultation about ${dog}.`
       }[circ];
+      $('#likenessNext').hidden = !saved.likeness_url;
+      if (saved.likeness_url) {
+        $('#likenessLink').href = saved.likeness_url;
+        $('#doneMsg').textContent = `Your Client Advisor will be in touch within one day to complete ${dog}’s registration. We will also introduce ourselves to your veterinarian. In the meantime, you can begin ${dog}’s likeness: the photographs, film and measurements our artisans will work from.`;
+      }
       goTo(STEPS + 1);
     });
     $('#flowBack').addEventListener('click', () => step > 1 && goTo(step - 1));
