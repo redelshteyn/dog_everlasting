@@ -28,7 +28,7 @@
         "@id": "https://dogeverlasting.com/#org"
       },
       "areaServed": "Worldwide",
-      "description": "Each dog is preserved by one master artisan over six to ten months, from the family's photographs, then delivered and placed in their home. Collection within 24 hours in the United States; international by arrangement.",
+      "description": "Each dog is preserved by one master artisan over six to ten months, from the family's photographs, then returned by fine-art shipper and placed in their home. A preservation case is sent overnight to the family's home or veterinarian, and the dog travels to the atelier by prepaid overnight shipping; larger dogs are collected by courier.",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Commissions and plans",
@@ -76,7 +76,7 @@
           {
             "@type": "Offer",
             "name": "The Register",
-            "description": "Plan ahead while your dog is alive: $800 a year, credited toward the commission, billing stops once $10,000 has been paid. One photograph a month. Payments are non-refundable; one named dog, not transferable.",
+            "description": "Plan ahead while your dog is alive: $800 a year, credited toward the commission, billing stops once $10,000 has been paid. One photograph a month. The preservation case is sent overnight on request, at any time. Payments are non-refundable; one named dog, not transferable.",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
               "price": 800,
@@ -96,7 +96,15 @@
           "name": "My dog has just died. What should I do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Please call us at any hour. Wrap them in a soft blanket and keep them in the coolest room of your home. We will guide you through everything else, and can collect from your veterinarian if you prefer."
+            "text": "Please call us at any hour, or begin a commission online. Wrap them in a soft blanket inside a plastic bag and place them in your freezer as soon as you can. If they will not fit, your veterinarian can hold them for you. We send your case overnight, and guide you through everything else."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does my dog reach you?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We send a preservation case overnight to your home or your veterinarian: an insulated, leak-proof case with everything needed and a prepaid overnight label. You, or your veterinarian, send it back to us. For larger dogs, we arrange a courier."
           }
         },
         {
@@ -104,7 +112,7 @@
           "name": "How does the Register work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You pay $800 a year, credited in full toward your dog's commission, and billing stops once $10,000 has been paid. Each month we ask for one photograph of your dog, so that by the time we are needed we already know them well."
+            "text": "You pay $800 a year, credited in full toward your dog's commission, and billing stops once $10,000 has been paid. Each month we ask for one photograph of your dog, so that by the time we are needed we already know them well. You may request your case at any time, and we send it overnight."
           }
         },
         {
@@ -136,7 +144,7 @@
           "name": "Do you accept commissions outside the United States?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. International collection and return, including by private aircraft, is arranged by your Client Advisor."
+            "text": "Yes. International shipping and return, including by private aircraft, is arranged by your Client Advisor."
           }
         }
       ]
@@ -160,6 +168,7 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     html.locked { overflow: hidden; }
+    [hidden] { display: none !important; }
     body {
       margin: 0;
       background: var(--white);
@@ -507,7 +516,7 @@
     <a href="#top" class="wordmark" aria-label="Dog Everlasting, home">Dog Everlasting</a>
     <div class="right">
       <a href="tel:+18885550142" class="caps hide-m">+1 888 555 0142</a>
-      <button class="caps" data-open-flow>Book<span class="hide-m">&nbsp;a consultation</span></button>
+      <button class="caps" data-open-flow>Begin<span class="hide-m">&nbsp;a commission</span></button>
     </div>
   </header>
 
@@ -581,23 +590,23 @@
       <div class="process-track" id="track">
         <article class="step">
           <figure class="ph t2"><span>A hand resting on a dog’s head</span></figure>
-          <div class="txt"><span class="n">01</span><h3>Consultation</h3><p>Your Client Advisor calls within the hour, day or night, by telephone, video or in your home. There is no obligation.</p></div>
+          <div class="txt"><span class="n">01</span><h3>Begin</h3><p>Call us or begin a commission online, day or night. Your Client Advisor responds within the hour and guides you through everything that follows.</p></div>
         </article>
         <article class="step">
-          <figure class="ph"><span>Folded linen, a leather collar</span></figure>
-          <div class="txt"><span class="n">02</span><h3>Collection</h3><p>A private, climate-controlled courier brings your dog to the atelier within 24 hours, from your home or your veterinarian.</p></div>
+          <figure class="ph"><span>The case — a hard-shell insulated trunk, open, folded linen inside</span></figure>
+          <div class="txt"><span class="n">02</span><h3>The Case</h3><p>We send a preservation case overnight to your home or your veterinarian, with everything needed to bring your dog to us safely.</p></div>
         </article>
         <article class="step">
-          <figure class="ph t3"><span>Photographs spread across a worktable</span></figure>
-          <div class="txt"><span class="n">03</span><h3>The Study</h3><p>We learn who they were from your photographs, videos and memories. Together we choose how they will rest.</p></div>
+          <figure class="ph t3"><span>The case, closed, waiting by a front door</span></figure>
+          <div class="txt"><span class="n">03</span><h3>The Journey</h3><p>Keep them cool until the case arrives, then send it back overnight with the prepaid label, or let your veterinarian do it for you. Larger dogs are collected by courier.</p></div>
         </article>
         <article class="step">
           <figure class="ph t2"><span>The atelier — north light, an artisan’s hands at work</span></figure>
-          <div class="txt"><span class="n">04</span><h3>The Atelier</h3><p>One artisan works on your dog alone, over six to ten months. You receive private previews and may visit by appointment.</p></div>
+          <div class="txt"><span class="n">04</span><h3>The Atelier</h3><p>We learn who they were from your photographs and memories, and choose with you how they will rest. One artisan then works on your dog alone, over six to ten months.</p></div>
         </article>
         <article class="step">
           <figure class="ph"><span>A dog in its favourite chair, by a window</span></figure>
-          <div class="txt"><span class="n">05</span><h3>Homecoming</h3><p>Your Advisor delivers your dog to your home and places them where they belong, with a signed certificate and lifetime care.</p></div>
+          <div class="txt"><span class="n">05</span><h3>Homecoming</h3><p>Your dog returns home with a fine-art shipper and is placed where they belong, with a signed certificate and lifetime care.</p></div>
         </article>
       </div>
     </section>
@@ -609,7 +618,7 @@
           <p class="caps muted">The Collection</p>
           <h2 style="margin-top:14px">Three commissions</h2>
         </div>
-        <button class="link hide-m" data-open-flow>Book a consultation</button>
+        <button class="link hide-m" data-open-flow>Begin a commission</button>
       </div>
       <div class="grid-3">
         <button class="product" data-tier="petite">
@@ -655,7 +664,8 @@
           <p class="pitch">For when the time has come. Call us, and we begin.</p>
           <dl>
             <div><dt>Payment</dt><dd>In full, at commission</dd></div>
-            <div><dt>Photographs</dt><dd>Gathered with you after collection</dd></div>
+            <div><dt>Case</dt><dd>Sent overnight to your home or veterinarian</dd></div>
+            <div><dt>Photographs</dt><dd>Gathered with you once they reach us</dd></div>
             <div><dt>For</dt><dd>Any dog, at any time</dd></div>
           </dl>
           <button class="btn outline" data-open-flow>Begin a commission</button>
@@ -664,10 +674,11 @@
           <span class="kicker">The Register</span>
           <div class="amount">$800</div>
           <span class="per">A year, until $10,000 is reached</span>
-          <p class="pitch">For the day you hope is far away. Arranged now, while they are with you, so that when the time comes there is nothing left to pay for and nothing left to gather.</p>
+          <p class="pitch">For the day you hope is far away. Arranged now, while they are with you, so that when the time comes there is nothing left to pay for and nothing left to gather. Your case is ready whenever you ask for it.</p>
           <dl>
             <div><dt>Billing</dt><dd>$800 each year. Billing stops once $10,000 has been paid.</dd></div>
             <div><dt>Credit</dt><dd>Every payment counts toward your dog’s commission.</dd></div>
+            <div><dt>Case</dt><dd>Request it at any time, and we send it overnight.</dd></div>
             <div><dt>Photographs</dt><dd>We ask for one photograph a month, so we come to know them while they are alive.</dd></div>
             <div><dt>If sooner</dt><dd>Any remaining balance is due at commission.</dd></div>
             <div><dt>Registration</dt><dd>For one named dog. Not transferable.</dd></div>
@@ -688,17 +699,21 @@
           <div><span class="caps muted">Telephone, 24 hours</span><a href="tel:+18885550142">+1 888 555 0142</a></div>
           <div><span class="caps muted">Email</span><a href="mailto:clientservices@dogeverlasting.com">clientservices@dogeverlasting.com</a></div>
           <div><span class="caps muted">Appointments</span><span>New York · Palm Beach · London</span></div>
-          <div><button class="btn outline" data-open-flow style="width:fit-content">Book a consultation</button></div>
+          <div><button class="btn outline" data-open-flow style="width:fit-content">Begin a commission</button></div>
         </div>
       </div>
       <div class="faq">
         <details>
           <summary>My dog has just died. What should I do?</summary>
-          <p>Please call us at any hour. Wrap them in a soft blanket and keep them in the coolest room of your home. We will guide you through everything else, and can collect from your veterinarian if you prefer.</p>
+          <p>Please call us at any hour, or begin a commission online. Wrap them in a soft blanket inside a plastic bag and place them in your freezer as soon as you can. If they will not fit, your veterinarian can hold them for you. We send your case overnight, and guide you through everything else.</p>
+        </details>
+        <details>
+          <summary>How does my dog reach you?</summary>
+          <p>We send a preservation case overnight to your home or your veterinarian: an insulated, leak-proof case with everything needed and a prepaid overnight label. You, or your veterinarian, send it back to us. For larger dogs, we arrange a courier.</p>
         </details>
         <details>
           <summary>How does the Register work?</summary>
-          <p>You pay $800 a year, credited in full toward your dog’s commission, and billing stops once $10,000 has been paid. Each month we ask for one photograph of your dog, so that by the time we are needed we already know them well.</p>
+          <p>You pay $800 a year, credited in full toward your dog’s commission, and billing stops once $10,000 has been paid. Each month we ask for one photograph of your dog, so that by the time we are needed we already know them well. You may request your case at any time, and we send it overnight.</p>
         </details>
         <details>
           <summary>What if my dog dies before the Register reaches $10,000?</summary>
@@ -722,7 +737,7 @@
         </details>
         <details>
           <summary>Do you accept commissions outside the United States?</summary>
-          <p>Yes. International collection and return, including by private aircraft, is arranged by your Client Advisor.</p>
+          <p>Yes. International shipping and return, including by private aircraft, is arranged by your Client Advisor.</p>
         </details>
       </div>
     </section>
@@ -736,7 +751,7 @@
         <ul>
           <li><a href="tel:+18885550142">+1 888 555 0142</a></li>
           <li><a href="mailto:clientservices@dogeverlasting.com">Email us</a></li>
-          <li><button data-open-flow>Book a consultation</button></li>
+          <li><button data-open-flow>Begin a commission</button></li>
         </ul>
       </div>
       <div>
@@ -806,6 +821,15 @@
             <div class="urgent" id="urgent">
               <p>We are so sorry. For the fastest response, please also call us now.</p>
               <a href="tel:+18885550142">+1 888 555 0142</a>
+              <p class="muted" style="margin-top:14px">Until your case arrives, wrap them in a soft blanket inside a plastic bag and place them in your freezer. If they will not fit, your veterinarian can hold them.</p>
+            </div>
+            <div id="whereBlock" hidden>
+              <p class="sublabel">Where are they now?</p>
+              <div class="opts">
+                <label class="opt radio"><input type="radio" name="where" value="home-frozen"><span class="mark"></span><span class="lbl">At home, in the freezer</span></label>
+                <label class="opt radio"><input type="radio" name="where" value="home"><span class="mark"></span><span class="lbl">At home, not yet in a freezer</span></label>
+                <label class="opt radio"><input type="radio" name="where" value="vet"><span class="mark"></span><span class="lbl">With my veterinarian</span></label>
+              </div>
             </div>
           </section>
 
@@ -856,6 +880,7 @@
               <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
               <div class="f"><label for="phone">Telephone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
               <div class="f"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>
+              <div class="f full" id="addressField" hidden><label for="address" id="addressLabel">Where should we send the case?</label><input id="address" name="address" autocomplete="street-address"></div>
               <div class="f full"><label for="contact">Preferred contact</label>
                 <select id="contact" name="contact">
                   <option>Telephone</option><option>Email</option><option>Video call</option><option>In-home visit</option><option>At a salon</option>
@@ -901,17 +926,17 @@
       petite: {
         name: 'The Petite', price: 10000, size: 'Up to 25 lbs', cap: 'Cavalier King Charles, resting', tone: '',
         desc: 'For smaller companions: Cavalier King Charles, Yorkshire Terrier, French Bulldog, Dachshund.',
-        list: [['Consultation', 'Private, at home or by video'], ['Collection', 'Within 200 miles'], ['Pose', 'Resting or seated'], ['Eyes', 'Hand-painted, matched to photographs'], ['Base', 'Walnut plinth'], ['Care', 'Lifetime conservation']]
+        list: [['Consultation', 'Private, at home or by video'], ['Case', 'Overnight, return shipping prepaid'], ['Pose', 'Resting or seated'], ['Eyes', 'Hand-painted, matched to photographs'], ['Base', 'Walnut plinth'], ['Care', 'Lifetime conservation']]
       },
       signature: {
         name: 'The Signature', price: 16500, size: '25 to 60 lbs', cap: 'Border Collie, seated', tone: 't2',
         desc: 'For medium companions: Cocker Spaniel, Border Collie, Whippet, Australian Shepherd.',
-        list: [['Consultation', 'Private, at home or by video'], ['Collection', 'Nationwide'], ['Pose', 'Resting, seated or lying'], ['Previews', 'Two, in private'], ['Placement', 'In your home, by your Advisor'], ['Care', 'Annual visits for five years']]
+        list: [['Consultation', 'Private, at home or by video'], ['Case', 'Overnight, return shipping prepaid'], ['Pose', 'Resting, seated or lying'], ['Previews', 'Two, in private'], ['Placement', 'In your home, by your Advisor'], ['Care', 'Annual visits for five years']]
       },
       grand: {
         name: 'The Grand', price: 24000, size: 'Over 60 lbs', cap: 'Golden Retriever, lying, head raised', tone: 't3',
         desc: 'For larger companions: Golden Retriever, Labrador, German Shepherd, Great Dane.',
-        list: [['Artisan', 'Senior master artisan'], ['Collection', 'Nationwide'], ['Pose', 'Any natural pose, including standing'], ['Previews', 'Unlimited, and an atelier visit'], ['Placement', 'In your home, by your Advisor'], ['Care', 'Annual visits for life']]
+        list: [['Artisan', 'Senior master artisan'], ['Collection', 'By courier, from home or veterinarian'], ['Pose', 'Any natural pose, including standing'], ['Previews', 'Unlimited, and an atelier visit'], ['Placement', 'In your home, by your Advisor'], ['Care', 'Annual visits for life']]
       }
     };
     const ADDONS = [
@@ -978,10 +1003,10 @@
     $('#progress').innerHTML = '<i></i>'.repeat(STEPS);
 
     function openFlow(pre = {}) {
+      if (step > STEPS) { form.reset(); goTo(1); }
       if (pre.tier) { const r = $(`input[name="tier"][value="${pre.tier}"]`); if (r) r.checked = true; }
       if (pre.addon) { const c = $(`input[name="addons"][value="${pre.addon}"]`); if (c) c.checked = true; }
       if (pre.circ) { const r = $(`input[name="circumstance"][value="${pre.circ}"]`); if (r) { r.checked = true; } }
-      if (step > STEPS) { form.reset(); goTo(1); }
       lastFocus = document.activeElement;
       show(flow, true); lock(true);
       updateSummary(); syncUrgent();
@@ -1000,16 +1025,21 @@
       $('#actions').style.display = n > STEPS ? 'none' : '';
       $('#flowBack').style.visibility = n > 1 && n <= STEPS ? 'visible' : 'hidden';
       $('#stepLabel').textContent = n <= STEPS ? `${n} / ${STEPS}` : '';
-      $('#next').textContent = n === STEPS ? 'Request consultation' : 'Continue';
+      $('#next').textContent = n === STEPS ? submitLabel() : 'Continue';
       $('#err').textContent = '';
       $$('.bad', form).forEach(e => e.classList.remove('bad'));
       $('.stage', flow).scrollTop = 0;
+    }
+
+    function submitLabel() {
+      return { register: 'Join the Register', ahead: 'Request consultation' }[new FormData(form).get('circumstance')] || 'Begin commission';
     }
 
     function validate() {
       const data = new FormData(form);
       const fail = (msg, el) => { $('#err').textContent = msg; if (el) { el.closest('.f')?.classList.add('bad'); el.focus(); } return false; };
       if (step === 1 && !data.get('circumstance')) return fail('Please choose one.');
+      if (step === 1 && data.get('circumstance') === 'recent' && !data.get('where')) return fail('Please tell us where they are now.');
       if (step === 2) {
         if (!data.get('dogName').trim()) return fail('Please tell us their name.', $('#dogName'));
         if (!data.get('tier')) return fail('Please choose a commission, or let us recommend one.');
@@ -1018,6 +1048,7 @@
         if (!data.get('name').trim()) return fail('Please enter your name.', $('#name'));
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.get('email').trim())) return fail('Please enter a valid email.', $('#email'));
         if (data.get('phone').replace(/\D/g, '').length < 7) return fail('Please enter a telephone number.', $('#phone'));
+        if (data.get('circumstance') === 'recent' && !data.get('address').trim()) return fail('Please tell us where to send the case.', $('#address'));
         if (!$('#consent').checked) return fail('Please confirm we may contact you.');
       }
       return true;
@@ -1037,8 +1068,8 @@
       const circ = d.get('circumstance');
       $('#doneTitle').textContent = circ === 'recent' ? `We are so sorry, ${first}.` : circ === 'register' ? `Welcome, ${first} and ${dog}.` : `Thank you, ${first}.`;
       $('#doneMsg').textContent = {
-        recent: `Your Client Advisor will call you within the hour to arrange ${dog}’s collection. If you would like to speak to someone now, we are here: +1 888 555 0142.`,
-        register: `Your Client Advisor will be in touch within one day to complete ${dog}’s registration. Then, once a month, we will ask you for one photograph.`,
+        recent: `Your case will be sent overnight ${d.get('where') === 'vet' ? 'to your veterinarian' : 'to you'}, and your Client Advisor will call within the hour to guide you through the next steps for ${dog}. If you would like to speak to someone now, we are here: +1 888 555 0142.`,
+        register: `Your Client Advisor will be in touch within one day to complete ${dog}’s registration. Once a month, we will ask you for one photograph. Your case is ready whenever you need it: simply request it, and we send it overnight.`,
         ahead: `Your Client Advisor will be in touch within one day to arrange a private consultation about ${dog}.`
       }[circ];
       goTo(STEPS + 1);
@@ -1046,7 +1077,13 @@
     $('#flowBack').addEventListener('click', () => step > 1 && goTo(step - 1));
 
     function syncUrgent() {
-      $('#urgent').classList.toggle('show', $('input[name="circumstance"]:checked')?.value === 'recent');
+      const recent = $('input[name="circumstance"]:checked')?.value === 'recent';
+      $('#urgent').classList.toggle('show', recent);
+      $('#whereBlock').hidden = !recent;
+      $('#addressField').hidden = !recent;
+      $('#addressLabel').textContent = $('input[name="where"]:checked')?.value === 'vet'
+        ? 'Veterinary clinic name and address' : 'Where should we send the case?';
+      if (step === STEPS) $('#next').textContent = submitLabel();
     }
     function updateSummary() {
       const d = new FormData(form);
@@ -1058,6 +1095,8 @@
         ['Dog', d.get('dogName')?.trim() || '—'],
         ['Commission', tier ? tier.name : d.get('tier') === 'unsure' ? 'To be advised' : '—'],
         ['Pose', d.get('pose') || '—'],
+        ...(circ === 'recent' ? [['Case', d.get('where') === 'vet' ? 'Overnight, to your veterinarian' : 'Overnight, to you']] : []),
+        ...(circ === 'register' ? [['Case', 'On request, at any time']] : []),
         ...addons.map(a => [a.name, fmt(a.price)])
       ];
       $('#summary').innerHTML = rows.map(([a, b]) => `<div class="line"><dt>${a}</dt><dd></dd></div>`).join('');

@@ -32,7 +32,8 @@ docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlastin
 
 - **Collection:** three commissions by size: The Petite ($10,000), The Signature ($16,500), The Grand ($24,000), plus refinements (add-ons).
 - **Plans:** *At Time of Need* ($10,000, paid in full at commission) or *The Register* ($800 a year, credited toward the commission, billing stops at $10,000; one photo a month; non-refundable; one named dog, not transferable).
-- **Booking flow:** a full-screen, five-step consultation request with a live price summary.
+- **Commission flow:** a full-screen, five-step "Begin a commission" form with a live price summary. Time of Need asks where the dog is now and where to send the case.
+- **Mail-in process:** we send a preservation case overnight to the home or veterinarian; the dog returns to us by prepaid overnight shipping (courier for large dogs). Register members request their case at any time.
 - **Structured data:** schema.org JSON-LD in `<head>` describes the business, plans, prices and FAQ for search engines and AI agents. Keep it in sync with the page copy.
 
 ## Before launch
@@ -41,6 +42,8 @@ docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlastin
 - [ ] Replace placeholder phone number (+1 888 555 0142) and confirm the email domain
 - [ ] Replace photography placeholders (each `.ph` block's caption is the shot brief)
 - [ ] Legal review of the Register (prepaid, multi-year plan)
+- [ ] Written carrier agreement (UPS or FedEx) for shipping frozen animals; standard terms prohibit it
+- [ ] Design and source the preservation case (insulated, leak-proof, sized per commission)
 
 ## Roadmap
 
