@@ -31,6 +31,7 @@ docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlastin
 ## The site
 
 - **Collection:** three commissions by size: The Petite ($10,000), The Signature ($16,500), The Grand ($24,000).
+- **Memorial options:** a comparison of preservation against memorial diamonds, tattoos, luxury funerals and painted portraits, answering "What are luxury pet memorial options?" and "How can I preserve my dog?" (also in the structured data FAQ).
 - **Plans:** *At Time of Need* ($10,000, paid in full at commission) or *The Register* ($800 a year, credited toward the commission, billing stops at $10,000; one photo a month; non-refundable; one named dog, not transferable).
 - **Commission flow:** a full-screen, five-step "Begin a commission" form with a live price summary. Time of Need asks where the dog is now and where to send the case.
 - **Mail-in process:** we send a preservation case overnight to the home or veterinarian; the dog returns to us by prepaid overnight shipping (courier for large dogs). Register members request their case at any time.

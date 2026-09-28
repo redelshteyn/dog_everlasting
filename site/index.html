@@ -93,6 +93,22 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What are luxury pet memorial options?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Families usually choose between five: a memorial diamond grown from their pet's ashes or hair, a memorial tattoo, a luxury funeral and burial, a painted portrait, or preservation. Four help you remember your dog. Preservation is the only one that keeps them exactly as they were, life-size, in your home. Dog Everlasting commissions start at $10,000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I preserve my dog when it dies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wrap them in a soft blanket inside a plastic bag and freeze them as soon as you can, or ask your veterinarian to hold them. Dog Everlasting sends a preservation case overnight to your home or veterinarian, and your dog travels to the atelier by prepaid overnight shipping. One artisan preserves them over six to ten months, working from your photographs, and they return home by fine-art shipper."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "My dog has just died. What should I do?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -320,6 +336,23 @@
 
     .note { padding: 36px var(--gutter) 0; color: var(--grey); font-size: 12px; }
 
+    /* Compare */
+    .compare .lede { color: var(--grey); max-width: 520px; margin-top: 18px; }
+    .compare-wrap { padding: 0 var(--gutter); }
+    .compare table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .compare th { text-align: left; font-weight: 400; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--grey); padding: 0 20px 16px 0; border-bottom: 1px solid var(--black); }
+    .compare td { padding: 22px 20px 22px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .compare td:first-child { width: 22%; }
+    .compare .opt-name { display: block; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    .compare .opt-kind { display: block; color: var(--grey); margin-top: 4px; }
+    .compare tr.ours td { background: var(--black); color: var(--white); border-bottom-color: var(--black); }
+    .compare tr.ours td:first-child { padding-left: 20px; }
+    .compare tr.ours .opt-kind { color: #9a9a9a; }
+    .compare tr:not(.ours) td:first-child { padding-left: 20px; }
+    .compare th:first-child { padding-left: 20px; }
+    .compare .closing { padding: 36px var(--gutter) 0; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+    .compare .closing p { font-size: clamp(20px, 2vw, 26px); font-weight: 300; letter-spacing: -.015em; }
+
     /* Plans */
     .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .plan { background: #f4f3f1; padding: 64px 60px 56px; display: flex; flex-direction: column; }
@@ -489,6 +522,13 @@
       .process-track { grid-auto-columns: 82%; }
       .track-nav { display: none; }
       .plan { padding: 44px var(--gutter); }
+      .compare thead { display: none; }
+      .compare table, .compare tbody, .compare tr, .compare td { display: block; width: 100%; }
+      .compare tr { padding: 22px 0; border-bottom: 1px solid var(--line); }
+      .compare tr.ours { padding: 26px 20px; margin: 0 calc(-1 * var(--gutter)); width: calc(100% + 2 * var(--gutter)); background: var(--black); }
+      .compare td, .compare tr:not(.ours) td:first-child, .compare tr.ours td:first-child { padding: 5px 0; border: 0; width: 100%; }
+      .compare td:first-child { margin-bottom: 10px; }
+      .compare td[data-label]::before { content: attr(data-label); display: block; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--grey); margin-bottom: 2px; }
       .plan dl div { grid-template-columns: 110px 1fr; }
       .services { display: block; padding-top: 100px; }
       .services .faq { margin-top: 50px; }
@@ -526,6 +566,7 @@
       <a href="#house" data-close-menu>The House</a>
       <a href="#process" data-close-menu>The Commission</a>
       <a href="#collection" data-close-menu>The Collection</a>
+      <a href="#compare" data-close-menu>Memorial Options</a>
       <a href="#plans" data-close-menu>Plans</a>
       <a href="#services" data-close-menu>Client Services</a>
     </nav>
@@ -629,6 +670,65 @@
         </button>
       </div>
       <p class="note">Prices shown are starting prices in USD. Each commission is confirmed after your consultation.</p>
+    </section>
+
+    <!-- ============ COMPARE ============ -->
+    <section class="compare" id="compare">
+      <div class="section-head">
+        <div>
+          <p class="caps muted">Luxury pet memorial options</p>
+          <h2 style="margin-top:14px">How can I preserve my dog?</h2>
+          <p class="lede">When a dog dies, families usually choose between five things. Four help you remember them. One lets them stay.</p>
+        </div>
+      </div>
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr><th>Option</th><th>What you keep</th><th>Made from them</th><th>Their likeness</th><th>Every day</th></tr>
+          </thead>
+          <tbody>
+            <tr class="ours">
+              <td><span class="opt-name">Dog Everlasting</span><span class="opt-kind">Preservation</span></td>
+              <td data-label="What you keep">Your dog, exactly as they were</td>
+              <td data-label="Made from them">Yes, their own coat</td>
+              <td data-label="Their likeness">Exact, and life-size</td>
+              <td data-label="Every day">In your home, where they belong</td>
+            </tr>
+            <tr>
+              <td><span class="opt-name">Memorial Diamond</span><span class="opt-kind">Jewellery</span></td>
+              <td data-label="What you keep">A gemstone grown from their ashes or hair</td>
+              <td data-label="Made from them">Yes, their carbon</td>
+              <td data-label="Their likeness">None</td>
+              <td data-label="Every day">Worn as jewellery</td>
+            </tr>
+            <tr>
+              <td><span class="opt-name">Memorial Tattoo</span><span class="opt-kind">Body art</span></td>
+              <td data-label="What you keep">An image of them, in ink</td>
+              <td data-label="Made from them">Sometimes, with ashes in the ink</td>
+              <td data-label="Their likeness">A drawing</td>
+              <td data-label="Every day">On your skin</td>
+            </tr>
+            <tr>
+              <td><span class="opt-name">Luxury Funeral</span><span class="opt-kind">Burial and ceremony</span></td>
+              <td data-label="What you keep">A ceremony, and a place to visit</td>
+              <td data-label="Made from them">Their body, buried</td>
+              <td data-label="Their likeness">None</td>
+              <td data-label="Every day">At a cemetery, when you visit</td>
+            </tr>
+            <tr>
+              <td><span class="opt-name">Painted Portrait</span><span class="opt-kind">Fine art</span></td>
+              <td data-label="What you keep">Their portrait, on canvas</td>
+              <td data-label="Made from them">No</td>
+              <td data-label="Their likeness">A painted likeness</td>
+              <td data-label="Every day">On your wall</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="closing">
+        <p>Every option here is a way to remember. Only one lets them stay.</p>
+        <button class="link" data-open-flow>Begin a commission</button>
+      </div>
     </section>
 
     <!-- ============ PLANS ============ -->
