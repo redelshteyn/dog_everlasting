@@ -6,9 +6,27 @@ Website for Dog Everlasting, a private atelier that preserves dogs so they can s
 
 ```
 site/index.html   The full website: a single self-contained HTML file (inline CSS and JS)
+Dockerfile        Container that serves site/ with Caddy (used by Railway)
+Caddyfile         Web server config: static files, gzip, /healthz, security headers
+railway.json      Railway build and deploy settings
 ```
 
 Open `site/index.html` in a browser to view it. There is no build step.
+
+## Deploying to Railway
+
+The site is served by [Caddy](https://caddyserver.com) in a small container (`Dockerfile`, `Caddyfile`). Railway reads `railway.json`, builds the Dockerfile, and checks `/healthz`.
+
+1. In Railway: **New Project → Deploy from GitHub repo** → pick `dog_everlasting`.
+2. **Settings → Networking → Custom Domain**: add your domain, then create the DNS record Railway shows you at your registrar.
+
+No environment variables are needed yet. Railway sets `PORT` automatically.
+
+To run the container locally:
+
+```bash
+docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlasting
+```
 
 ## The site
 

@@ -1,0 +1,19 @@
+{
+	admin off
+}
+
+# Railway provides PORT; 8080 is the local default.
+:{$PORT:8080} {
+	root * /srv
+	encode gzip
+
+	respond /healthz 200
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options DENY
+	}
+
+	file_server
+}
