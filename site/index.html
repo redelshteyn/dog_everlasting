@@ -136,7 +136,7 @@
           "name": "Can I choose the pose?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Resting, seated, lying with the head raised, or standing. With the Expressive Pose refinement, a signature moment, such as a play bow or a head tilt."
+            "text": "Yes. Resting, seated, lying with the head raised, or standing."
           }
         },
         {
@@ -144,7 +144,7 @@
           "name": "Do you accept commissions outside the United States?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. International shipping and return, including by private aircraft, is arranged by your Client Advisor."
+            "text": "Yes. International shipping and return is arranged by your Client Advisor."
           }
         }
       ]
@@ -317,9 +317,6 @@
     .product .price { font-size: 12px; letter-spacing: .04em; }
     .product .sub { color: var(--grey); font-size: 13px; }
 
-    .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; }
-    .grid-6 .product .ph { aspect-ratio: 1 / 1; }
-    .grid-6 .product .info { grid-template-columns: 1fr; padding: 14px 16px 0; }
 
     .note { padding: 36px var(--gutter) 0; color: var(--grey); font-size: 12px; }
 
@@ -469,7 +466,6 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 1100px) {
-      .grid-6 { grid-template-columns: repeat(3, 1fr); }
       .plan { padding: 50px 40px; }
       .flow .main { grid-template-columns: 1fr; }
       .summary { display: none; }
@@ -489,7 +485,6 @@
       .split { gap: 40px; }
       .grid-3 { gap: 34px; }
       .tile .meta, .product .info { padding-left: var(--gutter); padding-right: var(--gutter); }
-      .grid-6 { grid-template-columns: repeat(2, 1fr); row-gap: 26px; }
       .section-head { padding-top: 100px; }
       .process-track { grid-auto-columns: 82%; }
       .track-nav { display: none; }
@@ -531,7 +526,6 @@
       <a href="#house" data-close-menu>The House</a>
       <a href="#process" data-close-menu>The Commission</a>
       <a href="#collection" data-close-menu>The Collection</a>
-      <a href="#refinements" data-close-menu>Refinements</a>
       <a href="#plans" data-close-menu>Plans</a>
       <a href="#services" data-close-menu>Client Services</a>
     </nav>
@@ -634,17 +628,6 @@
           <div class="info"><span class="name">The Grand</span><span class="price">From $24,000</span><span class="sub">Over 60 lbs</span></div>
         </button>
       </div>
-    </section>
-
-    <!-- ============ REFINEMENTS ============ -->
-    <section id="refinements">
-      <div class="section-head">
-        <div>
-          <p class="caps muted">Add to any commission</p>
-          <h2 style="margin-top:14px">Refinements</h2>
-        </div>
-      </div>
-      <div class="grid-6" id="refinementGrid"></div>
       <p class="note">Prices shown are starting prices in USD. Each commission is confirmed after your consultation.</p>
     </section>
 
@@ -687,7 +670,7 @@
           <button class="btn" data-open-flow="register">Join the Register</button>
         </article>
       </div>
-      <p class="note">A larger commission or refinements are billed in addition, at commission.</p>
+      <p class="note">For a larger commission, the difference is billed at commission.</p>
     </section>
 
     <!-- ============ CLIENT SERVICES ============ -->
@@ -729,7 +712,7 @@
         </details>
         <details>
           <summary>Can I choose the pose?</summary>
-          <p>Yes. Resting, seated, lying with the head raised, or standing. With the Expressive Pose refinement, a signature moment, such as a play bow or a head tilt.</p>
+          <p>Yes. Resting, seated, lying with the head raised, or standing.</p>
         </details>
         <details>
           <summary>How are they cared for at home?</summary>
@@ -737,7 +720,7 @@
         </details>
         <details>
           <summary>Do you accept commissions outside the United States?</summary>
-          <p>Yes. International shipping and return, including by private aircraft, is arranged by your Client Advisor.</p>
+          <p>Yes. International shipping and return is arranged by your Client Advisor.</p>
         </details>
       </div>
     </section>
@@ -848,7 +831,7 @@
 
           <!-- 3 -->
           <section class="panel" data-step="3">
-            <p class="caps muted">Pose and refinements</p>
+            <p class="caps muted">Pose</p>
             <h2>How should they rest?</h2>
             <p class="lede">Nothing here is final. Your Advisor will talk it through with you.</p>
             <div class="opts">
@@ -858,8 +841,6 @@
               <label class="opt radio"><input type="radio" name="pose" value="Lying, head raised"><span class="mark"></span><span class="lbl">Lying, head raised</span></label>
               <label class="opt radio"><input type="radio" name="pose" value="Standing"><span class="mark"></span><span class="lbl">Standing</span></label>
             </div>
-            <p class="sublabel">Refinements</p>
-            <div class="opts" id="addonOpts"></div>
           </section>
 
           <!-- 4 -->
@@ -939,31 +920,14 @@
         list: [['Artisan', 'Senior master artisan'], ['Collection', 'By courier, from home or veterinarian'], ['Pose', 'Any natural pose, including standing'], ['Previews', 'Unlimited, and an atelier visit'], ['Placement', 'In your home, by your Advisor'], ['Care', 'Annual visits for life']]
       }
     };
-    const ADDONS = [
-      { id: 'vitrine', name: 'Vitrine', price: 4800, desc: 'Low-iron, UV-filtering glass case on a bronze or walnut base.', cap: 'Glass vitrine' },
-      { id: 'expressive', name: 'Expressive Pose', price: 3500, desc: 'A signature moment: a play bow, a head tilt, mid-stride.', cap: 'Play bow' },
-      { id: 'portrait', name: 'Oil Portrait', price: 6000, desc: 'Oil on linen by a commissioned portrait painter, framed to order.', cap: 'Oil on linen' },
-      { id: 'bronze', name: 'Bronze Paw', price: 1800, desc: 'A cast of the paw and nose in solid bronze, in a leather case.', cap: 'Bronze cast' },
-      { id: 'priority', name: 'Priority', price: 8000, desc: 'Your dog becomes the atelier’s sole focus. Home in about four months.', cap: 'Atelier calendar' },
-      { id: 'aviation', name: 'Private Aviation', price: 7500, from: true, desc: 'International or remote collection and return by private aircraft.', cap: 'Aircraft cabin' }
-    ];
 
-    /* ---------- Render refinements grid + form options ---------- */
-    $('#refinementGrid').innerHTML = ADDONS.map((a, i) => `
-      <button class="product" data-addon="${a.id}">
-        <figure class="ph ${['', 't2', 't3'][i % 3]}"><span>${a.cap}</span></figure>
-        <div class="info"><span class="name">${a.name}</span><span class="price">${a.from ? 'From ' : ''}${fmt(a.price)}</span></div>
-      </button>`).join('');
-
+    /* ---------- Render form options ---------- */
     $('#tierOpts').innerHTML = Object.entries(TIERS).map(([k, t]) => `
       <label class="opt radio"><input type="radio" name="tier" value="${k}"><span class="mark"></span>
         <span class="lbl">${t.name}<small>${t.size}</small></span><span class="amt">From ${fmt(t.price)}</span></label>`).join('') + `
       <label class="opt radio"><input type="radio" name="tier" value="unsure"><span class="mark"></span>
         <span class="lbl">I am not sure<small>Your Advisor will recommend</small></span><span class="amt"></span></label>`;
 
-    $('#addonOpts').innerHTML = ADDONS.map(a => `
-      <label class="opt"><input type="checkbox" name="addons" value="${a.id}"><span class="mark"></span>
-        <span class="lbl">${a.name}<small>${a.desc}</small></span><span class="amt">${a.from ? 'From ' : ''}${fmt(a.price)}</span></label>`).join('');
 
     /* ---------- Overlays ---------- */
     const lock = on => document.documentElement.classList.toggle('locked', on);
@@ -1005,7 +969,6 @@
     function openFlow(pre = {}) {
       if (step > STEPS) { form.reset(); goTo(1); }
       if (pre.tier) { const r = $(`input[name="tier"][value="${pre.tier}"]`); if (r) r.checked = true; }
-      if (pre.addon) { const c = $(`input[name="addons"][value="${pre.addon}"]`); if (c) c.checked = true; }
       if (pre.circ) { const r = $(`input[name="circumstance"][value="${pre.circ}"]`); if (r) { r.checked = true; } }
       lastFocus = document.activeElement;
       show(flow, true); lock(true);
@@ -1015,7 +978,6 @@
     function closeFlow() { show(flow, false); lock(false); lastFocus?.focus(); }
     $$('[data-open-flow]').forEach(b => b.addEventListener('click', () => openFlow({ circ: b.dataset.openFlow })));
     $$('[data-close-flow]').forEach(b => b.addEventListener('click', closeFlow));
-    $$('[data-addon]').forEach(b => b.addEventListener('click', () => openFlow({ addon: b.dataset.addon })));
 
     function goTo(n) {
       step = n;
@@ -1088,7 +1050,6 @@
     function updateSummary() {
       const d = new FormData(form);
       const tier = TIERS[d.get('tier')];
-      const addons = d.getAll('addons').map(id => ADDONS.find(a => a.id === id));
       const circ = d.get('circumstance');
       const rows = [
         ['Plan', { recent: 'At Time of Need', register: 'The Register', ahead: 'To be discussed' }[circ] || '—'],
@@ -1097,11 +1058,10 @@
         ['Pose', d.get('pose') || '—'],
         ...(circ === 'recent' ? [['Case', d.get('where') === 'vet' ? 'Overnight, to your veterinarian' : 'Overnight, to you']] : []),
         ...(circ === 'register' ? [['Case', 'On request, at any time']] : []),
-        ...addons.map(a => [a.name, fmt(a.price)])
       ];
       $('#summary').innerHTML = rows.map(([a, b]) => `<div class="line"><dt>${a}</dt><dd></dd></div>`).join('');
       $$('#summary dd').forEach((dd, i) => dd.textContent = rows[i][1]); // textContent: user input stays inert
-      const commission = tier ? 'From ' + fmt(tier.price + addons.reduce((s, a) => s + a.price, 0)) : '—';
+      const commission = tier ? 'From ' + fmt(tier.price) : '—';
       if (circ === 'register') {
         $('#summary').insertAdjacentHTML('beforeend', `<div class="line"><dt>Commission estimate</dt><dd>${commission}</dd></div>`);
         $('#totalLabel').textContent = 'Due today';
