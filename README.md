@@ -32,9 +32,9 @@ docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlastin
 
 - **Collection:** three commissions by size: The Petite ($10,000), The Signature ($16,500), The Grand ($24,000).
 - **Memorial options:** a comparison of preservation against memorial diamonds, tattoos, luxury funerals and painted portraits, answering "What are luxury pet memorial options?" and "How can I preserve my dog?" (also in the structured data FAQ).
-- **Plans:** *At Time of Need* ($10,000, paid in full at commission) or *The Register* ($800 a year, credited toward the commission, billing stops at $10,000; one photo a month; non-refundable; one named dog, not transferable).
-- **Commission flow:** a full-screen, five-step "Begin a commission" form with a live price summary. Time of Need asks where the dog is now and where to send the case.
-- **Mail-in process:** we send a preservation case overnight to the home or veterinarian; the dog returns to us by prepaid overnight shipping (courier for large dogs). Register members request their case at any time.
+- **Plans:** *At Time of Need* ($10,000, paid in full at commission; likeness modelled from photographs) or *The Register* ($35 a month, credited toward the commission: a 3D model of the dog made now and stored until needed, and arrangements with the vet in advance; remaining balance due at commission; non-refundable; one named dog, not transferable).
+- **Commission flow:** a full-screen, five-step "Begin a commission" form with a live price summary. Time of Need and the Register ask for the dog's veterinarian.
+- **Process:** (1) 3D model of the dog while alive, pose and presentation agreed; (2) we provide our case to the vet, who sends the dog when the time comes; (3) form sculpted from the model while the coat is preserved; (4) changes since the model are agreed with the owner; (5) assembled and returned by fine-art shipper.
 - **Structured data:** schema.org JSON-LD in `<head>` describes the business, plans, prices and FAQ for search engines and AI agents. Keep it in sync with the page copy.
 
 ## Before launch
@@ -48,6 +48,6 @@ docker build -t dog-everlasting . && docker run --rm -p 8080:8080 dog-everlastin
 
 ## Roadmap
 
-1. Backend: form submissions, Stripe billing for the Register, member accounts, photo storage
-2. Meta Muse member connector: monthly photo submission and Register status
+1. Backend: form submissions, Stripe billing for the Register ($35/month), member accounts, 3D model storage
+2. Meta Muse member connector: Register status and veterinarian details
 3. Meta Muse directory connector: public, read-only services and booking
